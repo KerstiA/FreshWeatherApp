@@ -39,6 +39,7 @@ function currentTemp(response) {
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#weather-icon");
   let dateElement = document.querySelector("#date");
+  celsiusTemperature = response.data.main.temp;
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -78,8 +79,30 @@ function cityInput(event) {
   let city = document.querySelector("#text-input").value;
   searchCity(city);
 }
+
+function fahrenheitTemp(event) {
+  event.preventDefault();
+  let fahrTemperature = celsiusTemperature * 1.8 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrTemperature);
+}
+
+function celsiusTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
 let form = document.querySelector("#search-city");
 form.addEventListener("submit", cityInput);
 
 let button = document.querySelector("button");
 button.addEventListener("click", getCurrentPosition);
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", fahrenheitTemp);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", celsiusTemp);
