@@ -56,3 +56,30 @@ let city = `Raasiku`;
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(currentTemp);
+
+function currentPosition(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiKey = `88493d926515e36fa055dfe27bbb8ecd`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(currentTemp);
+}
+function getCurrentPosition() {
+  navigator.geolocation.getCurrentPosition(currentPosition);
+}
+
+function searchCity(city) {
+  let apiKey = `88493d926515e36fa055dfe27bbb8ecd`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(currentTemp);
+}
+function cityInput(event) {
+  event.preventDefault();
+  let city = document.querySelector("#text-input").value;
+  searchCity(city);
+}
+let form = document.querySelector("#search-city");
+form.addEventListener("submit", cityInput);
+
+let button = document.querySelector("button");
+button.addEventListener("click", getCurrentPosition);

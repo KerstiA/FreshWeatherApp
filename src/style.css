@@ -16,17 +16,21 @@ body {
   background-image: url(https://media.9news.com/assets/KUSA/images/a57f9eb0-bab3-4b1a-926a-102421b9a3ac/a57f9eb0-bab3-4b1a-926a-102421b9a3ac_1140x641.jpg);
 }
 .weather-temperature img {
-  margin-right: 10px;
-  height: 125px;
-  width: 125px;
+  margin-right: 5px;
+  height: 90px;
+  width: 90px;
 }
-.float-left {
+#temperature {
   font-size: 70px;
   margin-bottom: 25px;
 }
 #city {
   font-size: 60px;
   font-weight: bolder;
+}
+.float {
+  font-size: 25px;
+  margin-top: 0;
 }
 h3 {
   font-size: 24px;
