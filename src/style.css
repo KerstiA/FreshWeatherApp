@@ -22,11 +22,11 @@ body {
 }
 .float-left {
   font-size: 75px;
-  font-weight: bolder;
   margin-bottom: 25px;
 }
-h2 {
-  font-size: 48px;
+#city {
+  font-size: 60px;
+  font-weight: bolder;
 }
 h3 {
   font-size: 24px;
@@ -38,7 +38,9 @@ ul {
 li {
   list-style: none;
   font-size: 18px;
+  text-transform: capitalize;
 }
+
 .location {
   margin-top: 5px;
 }
@@ -48,9 +50,10 @@ li {
   border: rgb(1, 70, 148) 2px solid;
   border-radius: 5px;
   color: rgb(4, 16, 19);
-  background-color: rgba(124, 209, 243, 0.562);
+  background-color: rgba(124, 209, 243, 0.377);
   box-shadow: rgb(57, 89, 99) 1px 3px 3px 1px;
 }
+
 .fa-map-marker-alt {
   font-size: 26px;
   margin-right: 5px;

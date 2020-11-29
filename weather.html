@@ -24,9 +24,9 @@
   <body>
     <div class="container">
       <div class="weather">
-        <h3>10/10/2020 16:00</h3>
+        <h3 id="time"></h3>
         <br />
-        <h2><i class="fas fa-map-marker-alt"></i>Raasiku</h2>
+        <h2 id="city"><i class="fas fa-map-marker-alt"></i>Raasiku</h2>
         <br />
         <div class="clearfix weather-temperature">
           <img
@@ -34,16 +34,19 @@
             alt="partly"
             class="float-left"
           />
-          <div class="float-left">14°<small>C|</small>°<small>F</small></div>
+          <div class="float-left">
+            <strong id="temperature"></strong>
+            <small>°C|°F</small>
+          </div>
         </div>
         <br />
         <div class="row">
           <div class="col-6">
             <ul>
-              <li>Mostly Cloudy</li>
-              <li>Humidity: 73%</li>
-              <li>Wind: 2 km/h</li>
-              <li>Precipitation</li>
+              <li id="description">Mostly Cloudy</li>
+              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind: <span id="wind"></span> km/h</li>
+              <li>Precipitation: <span id="precipitation"></span>%</li>
             </ul>
           </div>
         </div>
