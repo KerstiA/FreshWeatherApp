@@ -31,7 +31,6 @@ function formatDate(timestamp) {
   return `${date} /${month} /${year}  ${hours}:${minutes}`;
 }
 function currentTemp(response) {
-  console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -50,6 +49,9 @@ function currentTemp(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+}
+function displayForecast(response) {
+  console.log(response.data);
 }
 
 let apiKey = `88493d926515e36fa055dfe27bbb8ecd`;
@@ -73,7 +75,11 @@ function searchCity(city) {
   let apiKey = `88493d926515e36fa055dfe27bbb8ecd`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(currentTemp);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
+
 function cityInput(event) {
   event.preventDefault();
   let city = document.querySelector("#text-input").value;
@@ -83,6 +89,7 @@ function cityInput(event) {
 function fahrenheitTemp(event) {
   event.preventDefault();
   let fahrTemperature = celsiusTemperature * 1.8 + 32;
+  celsiusLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(fahrTemperature);
 }

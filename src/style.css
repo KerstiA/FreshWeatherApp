@@ -24,6 +24,7 @@ body {
   font-size: 70px;
   margin-bottom: 25px;
 }
+
 #city {
   font-size: 60px;
   font-weight: bolder;
@@ -41,7 +42,7 @@ ul {
 }
 li {
   list-style: none;
-  font-size: 18px;
+  font-size: 22px;
   text-transform: capitalize;
 }
 
@@ -61,4 +62,7 @@ li {
 .fa-map-marker-alt {
   font-size: 26px;
   margin-right: 5px;
+}
+.float.units.active {
+  color: black;
 }
