@@ -17,11 +17,11 @@ body {
 }
 .weather-temperature img {
   margin-right: 10px;
-  height: 95px;
-  width: 95px;
+  height: 125px;
+  width: 125px;
 }
 .float-left {
-  font-size: 75px;
+  font-size: 70px;
   margin-bottom: 25px;
 }
 #city {
