@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <script
+      src="https://kit.fontawesome.com/ed2a0d7f0e.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Sansita+Swashed:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather">
+        <h3>10/10/2020 16:00</h3>
+        <h1><i class="fas fa-map-marker-alt"></i>Raasiku</h1>
+        <h2>14°C</h2>
+        <div class="row">
+          <div class="col-6">
+            <ul>
+              <li>Mostly Cloudy</li>
+              <li>Humidity: 73%</li>
+              <li>Wind: 2 km/h</li>
+              <li>Precipitation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="search-form">
+          <form id="search-city">
+            <input type="text" id="text-input" placeholder="Search Location" />
+            <input type="submit" id="search" value="Search" />
+            <i class="fas fa-map-marker-alt"></i>
+            <button class="location">My Location</button>
+          </form>
+        </div>
+        <div class="quote">
+          <p>
+            "When the weather is hot,
+            <br />
+            keep a cool mind.
+            <br />
+            When the weather is cold,
+            <br />
+            keep a warm heart."
+          </p>
+        </div>
+      </div>
+    </div>
+    <p class="name">
+      <small>
+        <a href="https://github.com/KerstiA/WeatherApp">Open-source code</a>
+        by Kersti Allikvee.
+      </small>
+    </p>
+    <script src="src/index.js"></script>
+  </body>
+</html>
