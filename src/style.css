@@ -11,13 +11,19 @@ body {
 .container {
   font-family: "Architects Daughter", cursive;
   box-shadow: #7e7f80 0px 10px 10px 5px;
-  margin: 100px auto;
+  margin: 45px auto;
   padding: 20px;
   background-image: url(https://media.9news.com/assets/KUSA/images/a57f9eb0-bab3-4b1a-926a-102421b9a3ac/a57f9eb0-bab3-4b1a-926a-102421b9a3ac_1140x641.jpg);
 }
-h1 {
-  font-size: 56px;
+.weather-temperature img {
+  margin-right: 10px;
+  height: 95px;
+  width: 95px;
+}
+.float-left {
+  font-size: 75px;
   font-weight: bolder;
+  margin-bottom: 25px;
 }
 h2 {
   font-size: 48px;
@@ -27,8 +33,25 @@ h3 {
 }
 ul {
   padding: 0;
-  margin: 0;
+  margin-bottom: 45px;
 }
 li {
   list-style: none;
+  font-size: 18px;
+}
+.location {
+  margin-top: 5px;
+}
+#search,
+#text-input,
+.location {
+  border: rgb(1, 70, 148) 2px solid;
+  border-radius: 5px;
+  color: rgb(4, 16, 19);
+  background-color: rgba(124, 209, 243, 0.562);
+  box-shadow: rgb(57, 89, 99) 1px 3px 3px 1px;
+}
+.fa-map-marker-alt {
+  font-size: 26px;
+  margin-right: 5px;
 }
