@@ -90,6 +90,7 @@ function fahrenheitTemp(event) {
   event.preventDefault();
   let fahrTemperature = celsiusTemperature * 1.8 + 32;
   celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(fahrTemperature);
 }
@@ -97,6 +98,8 @@ function fahrenheitTemp(event) {
 function celsiusTemp(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 

@@ -63,6 +63,9 @@ li {
   font-size: 26px;
   margin-right: 5px;
 }
-.float.units.active {
+
+.weather-temperature .active {
+  text-decoration: none;
   color: black;
+  cursor: default;
 }
