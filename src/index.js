@@ -71,6 +71,44 @@ function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(currentPosition);
 }
 
+function formatDay(timestamp) {
+  let currentDay = new Date(timestamp);
+  let hours = currentDay.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = currentDay.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let date = currentDay.getDate();
+  if (date < 10) {
+    date = `0${date}`;
+  }
+  return `${day} ${date}`;
+}
+
+function displayForecast(response) {
+  console.log(response.data);
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+
+  for (let index = 0; index < 10; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+     <div class="col-10">
+        <h4>${formatDay(forecast.dt * 1000)}</h4>
+        <img src="http://openweathermap.org/img/wn/${
+          forecast.weather[0].icon
+        }@2x.png"/>
+        <div class="forecast-temperature"><strong>${Math.round(
+          forecast.main.temp_max
+        )}°</strong>${Math.round(forecast.main.temp_min)}°</div>
+     </div>
+    `;
+  }
+}
+
 function searchCity(city) {
   let apiKey = `88493d926515e36fa055dfe27bbb8ecd`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;

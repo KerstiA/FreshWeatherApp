@@ -13,6 +13,8 @@ body {
   box-shadow: #7e7f80 0px 10px 10px 5px;
   margin: 45px auto;
   padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   background-image: url(https://media.9news.com/assets/KUSA/images/a57f9eb0-bab3-4b1a-926a-102421b9a3ac/a57f9eb0-bab3-4b1a-926a-102421b9a3ac_1140x641.jpg);
 }
 .weather-temperature img {
@@ -68,4 +70,9 @@ li {
   text-decoration: none;
   color: black;
   cursor: default;
+}
+
+.forecast.grid {
+  grid-column: 3;
+  grid-row: 2 / 6;
 }
