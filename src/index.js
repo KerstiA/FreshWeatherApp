@@ -8,27 +8,8 @@ function formatDate(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  let date = currentDay.getDate();
-  if (date < 10) {
-    date = `0${date}`;
-  }
   let year = currentDay.getFullYear();
-  let months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sept",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  let month = months[currentDay.getMonth()];
-  return `${date} /${month} /${year}  ${hours}:${minutes}`;
+  return `${formatDay(timestamp)} /${year}  ${hours}:${minutes}`;
 }
 function currentTemp(response) {
   let temperatureElement = document.querySelector("#temperature");
@@ -50,15 +31,141 @@ function currentTemp(response) {
   );
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
-function displayForecast(response) {
-  console.log(response.data);
+
+function formatDay(timestamp) {
+  let currentDay = new Date(timestamp);
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let month = months[currentDay.getMonth()];
+  let date = currentDay.getDate();
+  if (date < 10) {
+    date = `0${date}`;
+
+    return `${date}/${month}`;
+  }
 }
 
-let apiKey = `88493d926515e36fa055dfe27bbb8ecd`;
-let city = `Raasiku`;
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = response.data.list[0];
+  forecastElement.innerHTML =
+    forecastElement.innerHTML +
+    `
+        <div class="wrapper">
+         <img
+              src="http://openweathermap.org/img/wn/${
+                forecast.weather[0].icon
+              }@2x.png"
+            />
+          <p>
+           ${formatDay(forecast.dt * 1000)}
+            <div class="forecast-temperature">
+            <strong>${Math.round(forecast.main.temp_max)}°</strong>/
+            ${Math.round(forecast.main.temp_min)}°
+          </div>
+          </p>
+          <p id="weather-condition">${forecast.weather[0].description};</p>
+        </div>
 
-axios.get(apiUrl).then(currentTemp);
+    `;
+  forecast = response.data.list[8];
+  forecastElement.innerHTML =
+    forecastElement.innerHTML +
+    `
+        <div class="wrapper">
+         <img
+              src="http://openweathermap.org/img/wn/${
+                forecast.weather[0].icon
+              }@2x.png"
+            />
+          <p>
+           ${formatDay(forecast.dt * 1000)}
+            <div class="forecast-temperature">
+            <strong>${Math.round(forecast.main.temp_max)}°</strong>/
+            ${Math.round(forecast.main.temp_min)}°
+          </div>
+          </p>
+          <p id="weather-condition">${forecast.weather[0].description};</p>
+        </div>
+
+    `;
+  forecast = response.data.list[16];
+  forecastElement.innerHTML =
+    forecastElement.innerHTML +
+    `
+        <div class="wrapper">
+         <img
+              src="http://openweathermap.org/img/wn/${
+                forecast.weather[0].icon
+              }@2x.png"
+            />
+          <p>
+           ${formatDay(forecast.dt * 1000)}
+            <div class="forecast-temperature">
+            <strong>${Math.round(forecast.main.temp_max)}°</strong>/
+            ${Math.round(forecast.main.temp_min)}°
+          </div>
+          </p>
+          <p id="weather-condition">${forecast.weather[0].description};</p>
+        </div>
+
+    `;
+  forecast = response.data.list[24];
+  forecastElement.innerHTML =
+    forecastElement.innerHTML +
+    `
+        <div class="wrapper">
+         <img
+              src="http://openweathermap.org/img/wn/${
+                forecast.weather[0].icon
+              }@2x.png"
+            />
+          <p>
+           ${formatDay(forecast.dt * 1000)}
+            <div class="forecast-temperature">
+            <strong>${Math.round(forecast.main.temp_max)}°</strong>/
+            ${Math.round(forecast.main.temp_min)}°
+          </div>
+          </p>
+          <p id="weather-condition">${forecast.weather[0].description};</p>
+        </div>
+
+    `;
+  forecast = response.data.list[32];
+  forecastElement.innerHTML =
+    forecastElement.innerHTML +
+    `
+        <div class="wrapper">
+         <img
+              src="http://openweathermap.org/img/wn/${
+                forecast.weather[0].icon
+              }@2x.png"
+            />
+          <p>
+           ${formatDay(forecast.dt * 1000)}
+            <div class="forecast-temperature">
+            <strong>${Math.round(forecast.main.temp_max)}°</strong>/
+            ${Math.round(forecast.main.temp_min)}°
+          </div>
+          </p>
+          <p id="weather-condition">${forecast.weather[0].description};</p>
+        </div>
+
+    `;
+}
 
 function currentPosition(position) {
   let latitude = position.coords.latitude;
@@ -66,47 +173,12 @@ function currentPosition(position) {
   let apiKey = `88493d926515e36fa055dfe27bbb8ecd`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(currentTemp);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(currentPosition);
-}
-
-function formatDay(timestamp) {
-  let currentDay = new Date(timestamp);
-  let hours = currentDay.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = currentDay.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-  let date = currentDay.getDate();
-  if (date < 10) {
-    date = `0${date}`;
-  }
-  return `${day} ${date}`;
-}
-
-function displayForecast(response) {
-  console.log(response.data);
-  let forecastElement = document.querySelector("#forecast");
-  forecastElement.innerHTML = null;
-
-  for (let index = 0; index < 10; index++) {
-    forecast = response.data.list[index];
-    forecastElement.innerHTML += `
-     <div class="col-10">
-        <h4>${formatDay(forecast.dt * 1000)}</h4>
-        <img src="http://openweathermap.org/img/wn/${
-          forecast.weather[0].icon
-        }@2x.png"/>
-        <div class="forecast-temperature"><strong>${Math.round(
-          forecast.main.temp_max
-        )}°</strong>${Math.round(forecast.main.temp_min)}°</div>
-     </div>
-    `;
-  }
 }
 
 function searchCity(city) {
@@ -120,9 +192,10 @@ function searchCity(city) {
 
 function cityInput(event) {
   event.preventDefault();
-  let city = document.querySelector("#text-input").value;
-  searchCity(city);
+  let city = document.querySelector("#text-input");
+  searchCity(cityInput.value);
 }
+navigator.geolocation.getCurrentPosition(currentPosition);
 
 function fahrenheitTemp(event) {
   event.preventDefault();
