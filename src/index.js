@@ -195,6 +195,7 @@ function cityInput(event) {
   let cityInput = document.querySelector("#text-input");
   searchCity(cityInput.value);
 }
+
 navigator.geolocation.getCurrentPosition(currentPosition);
 
 function fahrenheitTemp(event) {
