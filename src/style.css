@@ -1,21 +1,15 @@
 body {
-  background-image: linear-gradient(
-    to right,
-    #eea2a2 0%,
-    #bbc1bf 19%,
-    #57c6e1 42%,
-    #b49fda 79%,
-    #7ac5d8 100%
-  );
+  background-image: linear-gradient(to right, #fff1eb 0%, #ace0f9 100%);
 }
 .container {
   font-family: "Architects Daughter", cursive;
   box-shadow: #7e7f80 0px 10px 10px 5px;
+  border-radius: 8px;
   margin: 45px auto;
   padding: 20px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  background-image: url(https://media.9news.com/assets/KUSA/images/a57f9eb0-bab3-4b1a-926a-102421b9a3ac/a57f9eb0-bab3-4b1a-926a-102421b9a3ac_1140x641.jpg);
+  background-image: url(https://eskipaper.com/images/snow-background-11.jpg);
 }
 .weather-temperature img {
   margin-right: 5px;
@@ -72,7 +66,13 @@ li {
   cursor: default;
 }
 
-.forecast.grid {
-  grid-column: 3;
-  grid-row: 2 / 6;
+.weather-forecast .wrapper {
+  display: grid;
+  grid-template-columns: 100px 150px 90px;
+  grid-template-rows: 40px 40px;
+  margin-top: 30px;
+  font-size: 26px;
+}
+#weather-condition {
+  font-size: 18px;
 }
