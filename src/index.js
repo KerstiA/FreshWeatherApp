@@ -192,7 +192,7 @@ function searchCity(city) {
 
 function cityInput(event) {
   event.preventDefault();
-  let city = document.querySelector("#text-input");
+  let cityInput = document.querySelector("#text-input");
   searchCity(cityInput.value);
 }
 navigator.geolocation.getCurrentPosition(currentPosition);
